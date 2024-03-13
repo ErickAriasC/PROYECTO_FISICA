@@ -30,7 +30,9 @@ body{
     position: none; 
     width: 100px;
     height: 100px;
-    background: #ff6464;
+    background-image: url('img/Tornillo-removebg-preview.png'); 
+    background-size: cover; 
+    background-position: center; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +49,9 @@ body{
     position: none;
     width: 100px;
     height: 100px;
-    background: #ff6464;
+    background-image: url('img/aluminio-removebg-preview.png'); 
+    background-size: cover; 
+    background-position: center; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +68,9 @@ body{
     position: none;
     width: 100px;
     height: 100px;
-    background: #ff6464;
+    background-image: url('img/madera.png'); 
+    background-size: cover; 
+    background-position: center; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,4 +88,27 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: 20px; 
+    background-color: #333; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    position: fixed; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.container-buttons button {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    margin: 5px 0; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.container-buttons button:hover {
+    background-color: #0056b3; 
 }
