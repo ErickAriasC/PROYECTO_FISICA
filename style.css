@@ -76,3 +76,10 @@ body{
     cursor: pointer;
     transition: 0.1s ;
 }
+
+.container-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
