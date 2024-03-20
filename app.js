@@ -58,3 +58,15 @@ function moverCaja2(e) {
 
 atraer.addEventListener("click", activarAtraccion);
 repeler.addEventListener("click", activarRepeler);
+
+
+const customCursor = document.createElement("img");
+customCursor.src = "img/iman.png";
+customCursor.style.position = "absolute";
+customCursor.style.pointerEvents = "none"; 
+document.body.appendChild(customCursor);
+
+document.body.addEventListener("mousemove", (e) => {
+    customCursor.style.left = e.clientX + "px";
+    customCursor.style.top = e.clientY + "px";
+});
