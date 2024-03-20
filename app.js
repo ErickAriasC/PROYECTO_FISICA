@@ -4,6 +4,8 @@ const repeler = document.querySelector(".repeler");
 
 const caja1 = document.querySelector(".box");
 const caja2 = document.querySelector(".box2");
+const descripcionRepeler=document.querySelector(".repulsion");
+const descripcionAtraer=document.querySelector(".atraccion");
 
 let atraccionActivada = false;
 let repelerActivado = false;
@@ -12,9 +14,12 @@ function activarAtraccion() {
   atraccionActivada = !atraccionActivada; 
   if (atraccionActivada) {
     caja1.style.position = 'absolute';
+    descripcionAtraer.style.display="flex";
     document.addEventListener('mousemove', moverCaja1);
   } else {
     document.removeEventListener('mousemove', moverCaja1);
+    descripcionAtraer.style.display="none";
+
   }
 }
 
@@ -42,9 +47,12 @@ function activarRepeler() {
   repelerActivado = !repelerActivado; 
   if (repelerActivado) {
     caja2.style.position = 'relative';
+    descripcionRepeler.style.display="flex";
     document.addEventListener('mousemove', moverCaja2);
   } else {
     document.removeEventListener('mousemove', moverCaja2);
+    descripcionRepeler.style.display="none";
+
   }
 }
 
