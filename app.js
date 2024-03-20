@@ -5,24 +5,19 @@ const repeler = document.querySelector(".repeler");
 const caja1 = document.querySelector(".box");
 const caja2 = document.querySelector(".box2");
 
-// Variable para controlar el estado de los botones
 let atraccionActivada = false;
 let repelerActivado = false;
 
-// Función para activar o desactivar la atracción
 function activarAtraccion() {
-  atraccionActivada = !atraccionActivada; // Cambia el estado de activado a desactivado o viceversa
+  atraccionActivada = !atraccionActivada; 
   if (atraccionActivada) {
-    // Código de atracción
     caja1.style.position = 'absolute';
     document.addEventListener('mousemove', moverCaja1);
   } else {
-    // Código para volver al estado original
     document.removeEventListener('mousemove', moverCaja1);
   }
 }
 
-// Función para mover la caja1
 function moverCaja1(e) {
   let mouseX = e.clientX;
   let mouseY = e.clientY;
@@ -43,20 +38,16 @@ function moverCaja1(e) {
   caja1.style.top = topPosition + 'px';
 }
 
-// Función para activar o desactivar el repeler
 function activarRepeler() {
-  repelerActivado = !repelerActivado; // Cambia el estado de activado a desactivado o viceversa
+  repelerActivado = !repelerActivado; 
   if (repelerActivado) {
-    // Código de repeler
     caja2.style.position = 'relative';
     document.addEventListener('mousemove', moverCaja2);
   } else {
-    // Código para volver al estado original
     document.removeEventListener('mousemove', moverCaja2);
   }
 }
 
-// Función para mover la caja2
 function moverCaja2(e) {
   let mouseX = e.clientX;
   let mouseY = e.clientY;
@@ -65,6 +56,5 @@ function moverCaja2(e) {
   caja2.style.top = mouseY - caja2.clientHeight / 0.5 + 'px';
 }
 
-// Asignar eventos a los botones para activar o desactivar la atracción y repeler
 atraer.addEventListener("click", activarAtraccion);
 repeler.addEventListener("click", activarRepeler);
