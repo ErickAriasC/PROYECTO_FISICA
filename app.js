@@ -1,46 +1,70 @@
 
+const atraer = document.querySelector(".atraer");
+const repeler = document.querySelector(".repeler");
 
+const caja1 = document.querySelector(".box");
+const caja2 = document.querySelector(".box2");
 
-const atraer = document.querySelector(".box");
-const repeler = document.querySelector(".box2");
-const nada = document.querySelector(".box3");
+// Variable para controlar el estado de los botones
+let atraccionActivada = false;
+let repelerActivado = false;
 
+// Función para activar o desactivar la atracción
+function activarAtraccion() {
+  atraccionActivada = !atraccionActivada; // Cambia el estado de activado a desactivado o viceversa
+  if (atraccionActivada) {
+    // Código de atracción
+    caja1.style.position = 'absolute';
+    document.addEventListener('mousemove', moverCaja1);
+  } else {
+    // Código para volver al estado original
+    document.removeEventListener('mousemove', moverCaja1);
+  }
+}
 
-//atraccion
-atraer.addEventListener("click", () => {
-  console.log(atraer.textContent);
+// Función para mover la caja1
+function moverCaja1(e) {
+  let mouseX = e.clientX;
+  let mouseY = e.clientY;
 
-    atraer.style.position='absolute';
+  let rect = caja1.parentNode.getBoundingClientRect();
+  let leftLimit = rect.left;
+  let topLimit = rect.top;
+  let rightLimit = rect.right - caja1.clientWidth;
+  let bottomLimit = rect.bottom - caja1.clientHeight;
 
-    document.addEventListener('mousemove', function(e) {
-        let mouseX = e.clientX;
-        let mouseY = e.clientY;
-       
-        atraer.style.left = mouseX - atraer.clientWidth / 10 + 'px';
-        atraer.style.top = mouseY - atraer.clientHeight / 10 + 'px';
-    });
+  let leftPosition = mouseX - caja1.clientWidth / 10;
+  let topPosition = mouseY - caja1.clientHeight / 10;
 
-});
+  leftPosition = Math.max(leftLimit, Math.min(leftPosition, rightLimit));
+  topPosition = Math.max(topLimit, Math.min(topPosition, bottomLimit));
 
-//repele
-repeler.addEventListener("click", () => {
-  console.log(repeler.textContent);
+  caja1.style.left = leftPosition + 'px';
+  caja1.style.top = topPosition + 'px';
+}
 
-  repeler.style.position='relative';
+// Función para activar o desactivar el repeler
+function activarRepeler() {
+  repelerActivado = !repelerActivado; // Cambia el estado de activado a desactivado o viceversa
+  if (repelerActivado) {
+    // Código de repeler
+    caja2.style.position = 'relative';
+    document.addEventListener('mousemove', moverCaja2);
+  } else {
+    // Código para volver al estado original
+    document.removeEventListener('mousemove', moverCaja2);
+  }
+}
 
-  document.addEventListener('mousemove', function(e) {
-      let mouseX = e.clientX;
-      let mouseY = e.clientY;
+// Función para mover la caja2
+function moverCaja2(e) {
+  let mouseX = e.clientX;
+  let mouseY = e.clientY;
 
-      repeler.style.left = mouseX - repeler.clientWidth / 1 + 'px';
-      repeler.style.top = mouseY - repeler.clientHeight / 1 + 'px';
-  });
+  caja2.style.left = mouseX - caja2.clientWidth / 0.3 + 'px';
+  caja2.style.top = mouseY - caja2.clientHeight / 0.5 + 'px';
+}
 
-
-});
-
-
-//nada
-nada.addEventListener("click", () => {
-  console.log(nada.textContent);
-});
+// Asignar eventos a los botones para activar o desactivar la atracción y repeler
+atraer.addEventListener("click", activarAtraccion);
+repeler.addEventListener("click", activarRepeler);

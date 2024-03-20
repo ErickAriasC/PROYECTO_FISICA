@@ -15,18 +15,18 @@ body{
 }
 
 .container {
-    width: 30%; /* Ajusta el ancho según tu diseño */
-    height: auto;
+    width: 70%; 
+    height: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
     float: right;
     margin: 5rem 5rem 0 2rem ;
+    background-color: rgb(116, 116, 116);
   }
 
 .box {
-    /* relative repele... absolute atrae */
     position: none; 
     width: 100px;
     height: 100px;
@@ -93,7 +93,7 @@ body{
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
     position: fixed; 
-    left: 20px; 
+    left: 7%; 
     top: 50%; 
     transform: translateY(-50%); 
 }
