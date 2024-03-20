@@ -94,19 +94,20 @@ body{
 }
 
 .container-buttons {
+    width: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items:center;
     padding: 20px; 
     background-color: #333; 
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
     position: fixed; 
-    left: 7%; 
+    left: 5%; 
     top: 50%; 
     transform: translateY(-50%); 
-    
+    gap: 1rem;
 }
 
 .container-buttons button {
@@ -122,4 +123,45 @@ body{
 
 .container-buttons button:hover {
     background-color: #0056b3; 
+}
+
+.container-buttons>h2{
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+}
+
+.atraccion,.repulsion{
+    background-color: #525252c0;
+    width: 10rem;
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    position: absolute;
+    border-radius: 15px;
+}
+
+.atraccion{
+    top: 8%;
+    left: 20%;
+}
+
+.repulsion{
+    top: 8%;
+    left: 85%;
+}
+
+.atraccion>h3,.repulsion>h3{
+    font-size: 13px;
+    color:white;
+    text-align: center;
+}
+
+.atraccion>img,.repulsion>img{
+    width: 8rem;
+    height: auto;
+
 }
